@@ -1,0 +1,26 @@
+---
+title: "Analysis of tuberculosis cases"
+author: "Paweł Kaciczak"
+date: "31 10 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+devtools::install_github("rstudio/EDAWR")
+library(EDAWR)
+
+
+```
+
+## R Markdown
+```{r cars}
+clean_data <- filter(tb, !(is.na(child) & is.na(adult) & is.na(elderly)))
+
+non_clean_data <- filter(tb, is.na(child) | is.na(adult) | is.na(elderly))
+
+head(clean_data)
+head(non_clean_data)
+```
+
